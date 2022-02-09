@@ -1,0 +1,48 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+platform :ios do
+  desc "Incrementing Build Number"
+  lane :increment_build do
+    current_build_number = latest_testflight_build_number(
+      username: "ios.devpino@gmail.com",
+      app_identifier: "io.github.92pino.fastlaneTest"
+    )
+
+    increment_build_number(
+      build_number: current_build_number + 1
+    )
+  end
+
+  desc "Archive and Build IPA"
+  lane :tf do
+    cocoapods(use_bundle_exec: false)
+    increment_build
+    build_app(
+      workspace: "fastlaneTest.xcworkspace",
+      scheme: "fastlaneTest",
+      output_directory: "./Build/",
+      output_name: "fastlaneTest",
+      export_method: "app-store",
+      include_bitcode: false,
+      clean: true
+    )
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+  end
+end

@@ -13,6 +13,7 @@
 		3D91A7A627B2973D00EA960E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D91A7A427B2973D00EA960E /* Main.storyboard */; };
 		3D91A7A827B2973E00EA960E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D91A7A727B2973E00EA960E /* Assets.xcassets */; };
 		3D91A7AB27B2973E00EA960E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D91A7A927B2973E00EA960E /* LaunchScreen.storyboard */; };
+		9F24FC282B831214390C3A65 /* Pods_fastlaneTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D946CAC80FBE6D1CCE7FEDDB /* Pods_fastlaneTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		3D91A7A727B2973E00EA960E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D91A7AA27B2973E00EA960E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D91A7AC27B2973E00EA960E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1F27167F851545430D829BF /* Pods-fastlaneTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastlaneTest.debug.xcconfig"; path = "Target Support Files/Pods-fastlaneTest/Pods-fastlaneTest.debug.xcconfig"; sourceTree = "<group>"; };
+		D946CAC80FBE6D1CCE7FEDDB /* Pods_fastlaneTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fastlaneTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0F99F509C92EF91D987375 /* Pods-fastlaneTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fastlaneTest.release.xcconfig"; path = "Target Support Files/Pods-fastlaneTest/Pods-fastlaneTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F24FC282B831214390C3A65 /* Pods_fastlaneTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1067AA422663D8C4E5510DBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D946CAC80FBE6D1CCE7FEDDB /* Pods_fastlaneTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3D91A79227B2973D00EA960E = {
 			isa = PBXGroup;
 			children = (
 				3D91A79D27B2973D00EA960E /* fastlaneTest */,
 				3D91A79C27B2973D00EA960E /* Products */,
+				59538A32EFCF73727762C9E6 /* Pods */,
+				1067AA422663D8C4E5510DBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = fastlaneTest;
 			sourceTree = "<group>";
 		};
+		59538A32EFCF73727762C9E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D1F27167F851545430D829BF /* Pods-fastlaneTest.debug.xcconfig */,
+				FE0F99F509C92EF91D987375 /* Pods-fastlaneTest.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +99,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D91A7AF27B2973E00EA960E /* Build configuration list for PBXNativeTarget "fastlaneTest" */;
 			buildPhases = (
+				15617FB00196A4C9C858DB1E /* [CP] Check Pods Manifest.lock */,
 				3D91A79727B2973D00EA960E /* Sources */,
 				3D91A79827B2973D00EA960E /* Frameworks */,
 				3D91A79927B2973D00EA960E /* Resources */,
@@ -132,6 +158,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15617FB00196A4C9C858DB1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fastlaneTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D91A79727B2973D00EA960E /* Sources */ = {
@@ -284,6 +335,7 @@
 		};
 		3D91A7B027B2973E00EA960E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1F27167F851545430D829BF /* Pods-fastlaneTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +364,7 @@
 		};
 		3D91A7B127B2973E00EA960E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE0F99F509C92EF91D987375 /* Pods-fastlaneTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
